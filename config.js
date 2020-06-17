@@ -25,6 +25,10 @@ let config = {
                     layer: 'households-noninfected',
                     opacity: 1,
                 },
+                {
+                    layer: 'infected',
+                    opacity: 0,
+                },
             ],
             onChapterExit: [
             ],
@@ -49,6 +53,10 @@ let config = {
                     layer: 'infected',
                     opacity: 1,
                 },
+                {
+                    layer: 'highlightedhex',
+                    opacity: 0,
+                },
             ],
             onChapterExit: [
             ]
@@ -66,6 +74,10 @@ let config = {
                 {
                     layer: 'highlightedhex',
                     opacity: 1,
+                },
+                {
+                    layer: 'infected-2',
+                    opacity: 0,
                 },
             ],
             onChapterExit: [                
@@ -90,6 +102,13 @@ let config = {
                 {
                     layer: 'infected-2',
                     opacity: 1,
+                },
+                {
+                    layer: 'connections',
+                    opacity: 0,
+                },                {
+                    layer: 'grocery-stores',
+                    opacity: 0,
                 },
             ],
             onChapterExit: [
