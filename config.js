@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckbjuykmt05gm1ipjdju1962n',
+    style: 'mapbox://styles/epibayes/ckbjvynlz06gm1ino72n2ewo9',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
@@ -137,11 +137,11 @@ let config = {
                     opacity: 1,
                 },
                 {
-                    layer: 'concentrics2',
+                    layer: 'concentrics-2',
                     opacity: 0,
                 },   
                 {
-                    layer: 'concentrics3',
+                    layer: 'concentrics-3',
                     opacity: 0,
                 },
   
@@ -166,11 +166,11 @@ let config = {
                     opacity: 0,
                 },     
                 {
-                    layer: 'concentrics2',
+                    layer: 'concentrics-2',
                     opacity: 1,
                 },
                 {
-                    layer: 'concentrics3',
+                    layer: 'concentrics-3',
                     opacity: 1,
                 },         
             ],
@@ -194,11 +194,11 @@ let config = {
                     opacity: 1,
                 },
                 {
-                    layer: 'concentrics2',
+                    layer: 'concentrics-2',
                     opacity: 0,
                 },   
                 {
-                    layer: 'concentrics3',
+                    layer: 'concentrics-3',
                     opacity: 0,
                 },          
             ],
