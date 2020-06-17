@@ -22,10 +22,6 @@ let config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'hexagons_5km_seven-dk8c7v',
-                    opacity: 0.3,
-                },
-                {
                     layer: 'households-noninfected',
                     opacity: 1,
                 },
