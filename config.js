@@ -69,6 +69,8 @@ let config = {
             location: {
                 center: [-83.40, 42.329],
                 zoom: 11.8,
+                pitch: 0.00,
+                bearing: 0.00,
             },
             onChapterEnter: [
                 {
