@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckbjlsuhl130v1io0xcyle6le',
+    style: 'mapbox://styles/epibayes/ckbjmcpj122p31jqtppl4a8re',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
@@ -22,16 +22,8 @@ let config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'hexagons_5km_seven-dk8c7v',
-                    opacity: 0.3,
-                },
-                {
-                    layer: 'households_noninfected',
+                    layer: 'households-noninfected',
                     opacity: 1,
-                },
-                {
-                    layer: 'infected',
-                    opacity: 0,
                 },
             ],
             onChapterExit: [
@@ -50,7 +42,7 @@ let config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'households_noninfected',
+                    layer: 'households-noninfected',
                     opacity: 1,
                 },
                 {
