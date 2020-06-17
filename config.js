@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckbjmcpj122p31jqtppl4a8re',
+    style: 'mapbox://styles/epibayes/ckbjo4eni0u621iqa8dnbuszn',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
@@ -107,7 +107,7 @@ let config = {
                     layer: 'connections',
                     opacity: 0,
                 },                {
-                    layer: 'grocery-stores',
+                    layer: 'grocerystores',
                     opacity: 0,
                 },
             ],
@@ -130,7 +130,7 @@ let config = {
                     layer: 'connections',
                     opacity: 1,
                 },                {
-                    layer: 'grocery-stores',
+                    layer: 'grocerystores',
                     opacity: 1,
                 },
             ],
@@ -149,6 +149,10 @@ let config = {
                 bearing: 0.00,
             },
             onChapterEnter: [
+                {
+                    layer: 'businesses',
+                    opacity: 0,
+                },      
             ],
             onChapterExit: [
             ]
@@ -165,6 +169,10 @@ let config = {
                 bearing: 0.00,
             },
             onChapterEnter: [
+                {
+                    layer: 'businesses',
+                    opacity: 1,
+                },      
             ],
             onChapterExit: [
             ]
