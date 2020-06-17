@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckbjenhub0uxi1ip764ygk7dj',
+    style: 'mapbox://styles/epibayes/ckbjk08kq104v1ip7j5umx4q8',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
@@ -26,7 +26,7 @@ let config = {
                     opacity: 0.3,
                 },
                 {
-                    layer: 'households',
+                    layer: 'households_noninfected',
                     opacity: 1,
                 },
                 {
@@ -50,8 +50,8 @@ let config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'households',
-                    opacity: 0,
+                    layer: 'households_noninfected',
+                    opacity: 1,
                 },
                 {
                     layer: 'infected',
@@ -88,7 +88,7 @@ let config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'grocery_stores',
+                    layer: 'grocery-stores',
                     opacity: 0,
                 },
                 {
@@ -115,7 +115,7 @@ let config = {
                     layer: 'connections',
                     opacity: 1,
                 },                {
-                    layer: 'grocery_stores',
+                    layer: 'grocery-stores',
                     opacity: 1,
                 },
             ],
