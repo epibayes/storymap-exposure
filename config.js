@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckbm9cpqw179n1io94vhn85ta',
+    style: 'mapbox://styles/epibayes/ckbmiyavl1ggb1hmh9xs73wum',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
@@ -75,7 +75,7 @@ let config = {
             onChapterEnter: [
                 {
                     layer: 'highlightedhex',
-                    opacity: 1,
+                    opacity: .8,
                 },
                 {
                     layer: 'infected-2',
@@ -108,7 +108,8 @@ let config = {
                 {
                     layer: 'connections',
                     opacity: 0,
-                },                {
+                },                
+                {
                     layer: 'grocerystores',
                     opacity: 0,
                 },
@@ -167,11 +168,11 @@ let config = {
                 },     
                 {
                     layer: 'concentrics-2',
-                    opacity: 1,
+                    opacity: .8,
                 },
                 {
                     layer: 'concentrics-3',
-                    opacity: 1,
+                    opacity: .8,
                 },         
             ],
             onChapterExit: [
