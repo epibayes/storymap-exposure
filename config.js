@@ -259,6 +259,14 @@ let config = {
                     opacity: 1,
                 },
                 {
+                    layer: '3hex-rx-concentric1',
+                    opacity: 0,
+                },
+                {
+                    layer: '3hex-rx-concentric2',
+                    opacity: 0,
+                }, 
+                {
                     layer: '3hex-hardware-concentric1',
                     opacity: .8,
                 },      
