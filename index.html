@@ -236,6 +236,37 @@ if (config.showMarkers) {
 var scroller = scrollama();
 
 map.on("load", function() {
+    // set up household layer
+    map.addSource('3hex-households', {
+        type: 'vector',
+        url: 'mapbox://epibayes.ckbs01rk911yn26qhzpqbl5g6-0u8rv'
+    })
+    map.addLayer({
+        "id": "households",
+        "type": "symbol",
+        "source": "3hex-households",
+        "source-layer": "3hex-households",
+        'layout': {
+            "icon-image": 'home-solid',
+            "icon-allow-overlap": true,
+            "icon-size": 0.5,
+        }
+    })
+    // set up greenblue layer
+    map.addLayer({
+        "id": "greenblue",
+        "type": "symbol",
+        "source": "3hex-households",
+        "source-layer": "3hex-households",
+        'layout': {
+            "icon-image": 'home-solid-greengroup',
+            "icon-allow-overlap": true,
+            "icon-size": 0.5,
+        },
+        "paint":{
+            "icon-opacity": 0,
+        }
+    })
     // setup the instance, pass callback functions
     scroller
     .setup({
@@ -244,9 +275,33 @@ map.on("load", function() {
         progress: true
     })
     .onStepEnter(response => {
+        let idx = config.chapters.findIndex(chap => chap.id === response.element.id)
+        console.log(idx)
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
         response.element.classList.add('active');
         map.flyTo(chapter.location);
+
+        if ([1,2].includes(idx)) {
+            map.setLayoutProperty('households', 'icon-image', idx === 1 ? 'home-solid'
+                : ['match', ['get','status'],
+                    'infected', 'home-solid-infected',
+                    'home-solid',
+                ]
+            )
+        }
+        
+        if ([5].includes(idx)) {
+            map.setPaintProperty('greenblue', 'icon-opacity', 1)
+            map.setLayoutProperty('greenblue', 'icon-image', idx === 1 ? 'home-solid'
+                : ['match', ['get','zone'],
+                    'green', 'home-solid-greengroup',
+                    'home-solid-bluegroup',
+                ]
+            )
+        } else {
+            map.setPaintProperty('greenblue', 'icon-opacity', 0) 
+        }
+
         if (config.showMarkers) {
             marker.setLngLat(chapter.location.center);
         }

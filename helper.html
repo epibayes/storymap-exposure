@@ -38,11 +38,11 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ';
     var map = new mapboxgl.Map({
         container: 'map', // container id
-        style: 'mapbox://styles/epibayes/ckbmiyavl1ggb1hmh9xs73wum', // stylesheet location
-        center: [-74.50, 40], // starting position [lng, lat]
+        style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+        center: [-83.83117, 42.28944], // starting position [lng, lat]
         zoom: 9, // starting zoom
-        pitch: 45,
-        bearing: -40
+        // pitch: 45,
+        // bearing: -40
     });
 
     map.addControl(new MapboxGeocoder({

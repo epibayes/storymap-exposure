@@ -1,11 +1,11 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckbmiyavl1ggb1hmh9xs73wum',
+    style: 'mapbox://styles/epibayes/ckbs9mw6i5u4u1iuq9ene0iwn',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
     alignment: 'left',
-    title: 'Epidemiology Explained by Nina',
-    subtitle: 'A great explanation of something complicated',
+    title: 'Understanding your COVID Risk: Epidemiology by Nina',
+    subtitle: 'A map and calculations-supported visual story',
     byline: 'Draft by Alex',
     footer: 'Visit our <a href="https://covidmapping.org">main site</a>',
     chapters: [
@@ -13,22 +13,14 @@ let config = {
             id: 'one',
             title: 'Section 1',
             image: '',
-            description: 'In our environment, let’s say we have seven hexagonal neighborhoods. In these neighborhoods there are households with four people in each household. We have 25 total households – or 100 total people in our environment.',
+            description: 'Mapping COVID-19 disease cases and risk is challenging and depends upon the geographical unit chosen to determine who is at risk from their neighbors. <br><br>  In the following examples, we highlight how such maps are typically presented, by calculating the number of cases of COVID-19 in a certain residential area (city, county, or smaller geographic unit like a 10km hexagon, as we present on our site). However, presenting risk in this way assumes that an individual’s exposure to COVID-19 cases happens exclusively within their residential neighborhood. Through the following explainer, we illustrate why this might not be a ‘true’ representation of reality, and introduce a personal COVID-19 risk map for the state of Michigan to address some of the assumptions that come with these geographic maps.',
             location: {
-                center: [-83.44, 42.329],
+                center: [-83.83117, 42.28944],
                 zoom: 10.3,
                 pitch: 0.00,
                 bearing: 0.00,
             },
             onChapterEnter: [
-                {
-                    layer: 'households-noninfected',
-                    opacity: 1,
-                },
-                {
-                    layer: 'infected',
-                    opacity: 0,
-                },
             ],
             onChapterExit: [
             ],
@@ -37,24 +29,32 @@ let config = {
             id: 'two',
             title: 'Section 2',
             image: '',
-            description: 'Here, one household has a coronavirus infection. For the purposes of this explanation, we are going to assume that when a household gets COVID, all members of the household get COVID. So here, we have 4 COVID cases.',
+            description: 'First, let’s present a hypothetical environment 3 hexagonal neighborhoods and 12 households. Let’s say each household has four members, so we have 48 total people in our example.',
             location: {
-                center: [-83.40, 42.329],
-                zoom: 11.3,
+                center: [-83.83117, 42.28944],
+                zoom: 11,
+                pitch: 0.00,
+                bearing: 0.00,
+            },
+            onChapterEnter: [
+            ],
+            onChapterExit: [
+            ],
+        },
+        {
+            id: 'three',
+            title: 'Section 3',
+            image: '',
+            description: 'Now we have one household with a coronavirus infection. For the purposes of this explanation, we will assume that when a household gets COVID, all members of the household get COVID. So here, we have 4 COVID cases.',
+            location: {
+                center: [-83.81522, 42.25757],
+                zoom: 11.8,
                 pitch: 0.00,
                 bearing: 0.00,
             },
             onChapterEnter: [
                 {
-                    layer: 'households-noninfected',
-                    opacity: 1,
-                },
-                {
-                    layer: 'infected',
-                    opacity: 1,
-                },
-                {
-                    layer: 'highlightedhex',
+                    layer: '3hex-highlighthex',
                     opacity: 0,
                 },
             ],
@@ -62,23 +62,31 @@ let config = {
             ]
         },
         {
-            id: 'three',
-            title: 'Section 3',
+            id: 'four',
+            title: 'Section 4',
             image: '',
-            description: 'In many models, and under the assumptions of social distancing, risk is typically assessed within a geographic unit. For example, the attack rate in the middle hexagon would be assessed as the number of cases / the total number of inhabitants (4 / 24) = 16.7%. Additionally, we might think that these other five households in the center hexagon have the highest risk, because they have a neighbor with COVID.',
+            description: 'In many disease maps, disease incidence (and thereby, risk) is typically assessed within a geographic unit. Let’s examine the risk of coming into contact with a COVID-19 case in each of the three neighborhoods in this example. Starting with the hexagon containing the COVID-19 cases, and assuming that everyone in each hexagon interacts equally with all other households, but doesn’t come into contact with anyone outside their hexagon, the risk of coming into contact with someone who is infected in would be 4/24 = 16.7%, but the risk of contact with a COVID-19 case in the other two hexagons would be 0%.',
             location: {
-                center: [-83.40, 42.329],
+                center: [-83.81522, 42.25757],
                 zoom: 11.8,
                 pitch: 0.00,
                 bearing: 0.00,
             },
             onChapterEnter: [
                 {
-                    layer: 'highlightedhex',
+                    layer: '3hex-highlighthex',
                     opacity: .8,
                 },
                 {
-                    layer: 'infected-2',
+                    layer: '3hex-grocery-stores',
+                    opacity: 0,
+                },
+                {
+                    layer: '3hex-concentric1',
+                    opacity: 0,
+                },   
+                {
+                    layer: '3hex-concentric2',
                     opacity: 0,
                 },
             ],
@@ -86,66 +94,37 @@ let config = {
             ]
         },
         {
-            id: 'four',
-            title: 'Section 4',
-            image: '',
-            description: "However, let's say the next reported cases in were in a household not in the 'at-risk' center hexagon. This might seem counter-intuitive - because based on location of home residence alone, the five homes in the center hexagon seem to be at the highest risk. How might this house in the neighboring hexagon have gotten infected?, it's really fun",
-            location: {
-                center: [-83.40, 42.329],
-                zoom: 11.8,
-                pitch: 0.00,
-                bearing: 0.00,
-            },
-            onChapterEnter: [
-                {
-                    layer: 'highlightedhex',
-                    opacity: 0,
-                },
-                {
-                    layer: 'infected-2',
-                    opacity: 1,
-                },
-                {
-                    layer: 'connections',
-                    opacity: 0,
-                },                
-                {
-                    layer: 'grocerystores',
-                    opacity: 0,
-                },
-            ],
-            onChapterExit: [
-            ]
-        },
-        {
             id: 'five',
             title: 'Section 5',
             image: '',
-            description: 'People are not only confined to their homes - and even during stay-at-home orders, they leave to do essential tasks - such as getting groceries. Here, we have included the locations of the two grocery stores in this environment. There is a grocery store in the center hexagon which is also the nearest grocery store to the second infected house. By connecting households to their nearest grocery store, we can understand an additional way that people mix with individuals outside of their homes - and outside of their immediate neighborhoods.',
+            description: "However, even under social distancing and stay-at-home orders, people are not confined to their homes: they still have leave to do essential tasks - such as getting groceries. Here, we have included the locations of the two grocery stores in this environment. By connecting households to their nearest grocery store, we can understand an additional way that people mix with individuals outside of their homes - and outside of their immediate neighborhoods. <br><br>We can think of the houses falling into two groups: <ul><li>Closest to grocery store A (blue)</li><li>Closest to grocery store B (green)</li></ul>This allows us to construct interaction groups of individuals who are not connected by their neighborhood (hexagon) of residence, but connected by where they shop to get groceries.",
             location: {
-                center: [-83.40, 42.329],
+                center: [-83.81412, 42.28149],
                 zoom: 11.8,
                 pitch: 0.00,
                 bearing: 0.00,
             },
             onChapterEnter: [
                 {
-                    layer: 'connections',
-                    opacity: 1,
-                }, 
+                    layer: '3hex-highlighthex',
+                    opacity: 0,
+                },         
                 {
-                    layer: 'grocerystores',
+                    layer: '3hex-grocery-stores',
                     opacity: 1,
                 },
                 {
-                    layer: 'concentrics-2',
-                    opacity: 0,
+                    layer: '3hex-concentric1',
+                    opacity: 1,
                 },   
                 {
-                    layer: 'concentrics-3',
-                    opacity: 0,
+                    layer: '3hex-concentric2',
+                    opacity: 1,
                 },
-  
+                {
+                    layer: '3hex-connections',
+                    opacity: 0,
+                },  
             ],
             onChapterExit: [
             ]
@@ -154,26 +133,50 @@ let config = {
             id: 'six',
             title: 'Section 6',
             image: '',
-            description: 'We can think of the houses falling into two groups:<ul><li>Closest to grocery store A (blue)</li><li>Closest to grocery store B (red)</li></ul> This allows us to construct interaction groups of individuals who are not connected by their neighborhood (hexagon) of residence, but connected by where they shop to get groceries. Now we can see that coding out which homes are closest to each grocery store, we get very different senses of who is "at-risk" from this initial infection in the center hexagon. Here we have 14 additional households that are "at-risk" based on shopping at the same grocery stores as these two houses with COVID.',
+            description: 'Coding out which homes are closest to each grocery store, we get very different senses of who is "at-risk" from this initial infection in the center hexagon. Here we have 14 additional households that are "at-risk" based on shopping at the same grocery stores as these two houses with COVID.<br><br><ul><li>Calculating the risk for the ‘green’ group who attend the same grocery store as the infected household, we now see that, assuming they all go to the grocery store at the same time, these houses have a 1/9 (or 4/36) chance of coming into contact with someone with COVID-19, while the blue houses have a 0% chance of coming into contact with someone with COVID-19. This gives us a lower risk in Hexagon 1, a higher risk in Hexagon 3, and the same calculation in Hexagon 2 as the simple model assuming individuals only come into contact with their neighbors.</li></ul>',
             location: {
-                center: [-83.40, 42.329],
-                zoom: 10.9,
+                center: [-83.79846, 42.28022],
+                zoom: 12,
                 pitch: 0.00,
                 bearing: 0.00,
             },
             onChapterEnter: [
                 {
-                    layer: 'businesses',
-                    opacity: 0,
-                },     
+                    layer: '3hex-connections',
+                    opacity: 1,
+                },  
                 {
-                    layer: 'concentrics-2',
-                    opacity: .8,
+                    layer: '3hex-grocery-stores',
+                    opacity: 1,
                 },
                 {
-                    layer: 'concentrics-3',
-                    opacity: .8,
-                },         
+                    layer: '3hex-concentric1',
+                    opacity: 0,
+                },   
+                {
+                    layer: '3hex-concentric2',
+                    opacity: 0,
+                },
+                {
+                    layer: '3hex-otherstores',
+                    opacity: 0,
+                }, 
+                {
+                    layer: '3hex-rx-concentric1',
+                    opacity: 0,
+                },
+                {
+                    layer: '3hex-rx-concentric2',
+                    opacity: 0,
+                },      
+                {
+                    layer: '3hex-hardware-concentric1',
+                    opacity: 0,
+                },      
+                {
+                    layer: '3hex-hardware-concentric2',
+                    opacity: 0,
+                },
             ],
             onChapterExit: [
             ]
@@ -182,26 +185,72 @@ let config = {
             id: 'seven',
             title: 'Section 7',
             image: '',
-            description: 'However, grocery stores are not the only essential businesses where individuals from different households might interact. Even during stay-at-home orders, hardware stores and pharmacies might also be potential places for infected individuals from different neighborhoods to expose each other, complicating the network of interaction',            
+            description: 'However, grocery stores are not the only essential businesses where individuals from different households might interact. Even during stay-at-home orders, hardware stores (first graphic) and pharmacies (second graphic) are also places for infected individuals from different neighborhoods to expose each other, complicating the network of interaction.',
             location: {
-                center: [-83.44, 42.329],
+                center: [-83.81522, 42.25757],
                 zoom: 10.9,
                 pitch: 0.00,
                 bearing: 0.00,
             },
             onChapterEnter: [
                 {
-                    layer: 'businesses',
+                    layer: '3hex-connections',
+                    opacity: 0,
+                },  
+                {
+                    layer: '3hex-otherstores',
                     opacity: 1,
+                },     
+                {
+                    layer: '3hex-rx-concentric1',
+                    opacity: .8,
                 },
                 {
-                    layer: 'concentrics-2',
-                    opacity: 0,
-                },   
+                    layer: '3hex-rx-concentric2',
+                    opacity: .8,
+                },      
                 {
-                    layer: 'concentrics-3',
-                    opacity: 0,
-                },          
+                    layer: '3hex-hardware-concentric1',
+                    opacity: .8,
+                },      
+                {
+                    layer: '3hex-hardware-concentric2',
+                    opacity: .8,
+                },        
+            ],
+            onChapterExit: [
+            ]
+        },
+        {
+            id: 'eight',
+            title: 'Section 8',
+            image: '',
+            description: 'Each of these categorizations: mapping households to their closest grocery store, pharmacy, and hardware store, and seeing who their new contacts are through these essential establishments gives us a different group of individuals who might contact a case. This simplified illustration was used to map the ___ households at the block group level, ___ grocery stores, ___ hardware stores, and ___ pharmacies across the state of Michigan to generate a more realistic personalized ‘risk-map’, where you can scroll through your area and see what your risk of coming into contact with a case is while incorporating essential trips to pharmacies, grocery stores, and hardware stores.',            
+            location: {
+                center: [-83.81522, 42.25757],
+                zoom: 10.9,
+                pitch: 0.00,
+                bearing: 0.00,
+            },
+            onChapterEnter: [
+         
+            ],
+            onChapterExit: [
+            ]
+        },
+        {
+            id: 'nine',
+            title: 'Section 9',
+            image: '',
+            description: 'It’s important to remember that this is a <b><i>best case scenario</i></b> under social-distancing behaviors. As individuals start going back to work, to restaurants, and to bars with the state opening up, your individual risk will depend even less on your local neighbors – so remember to be mindful of your contacts and continue to practice social distancing.',            
+            location: {
+                center: [-83.81522, 42.25757],
+                zoom: 10.9,
+                pitch: 0.00,
+                bearing: 0.00,
+            },
+            onChapterEnter: [
+       
             ],
             onChapterExit: [
             ]
