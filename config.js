@@ -15,12 +15,16 @@ let config = {
             image: '',
             description: 'Mapping COVID-19 disease cases and risk is challenging and depends upon the geographical unit chosen to determine who is at risk from their neighbors. <br><br>  In the following examples, we highlight how such maps are typically presented, by calculating the number of cases of COVID-19 in a certain residential area (city, county, or smaller geographic unit like a 10km hexagon, as we present on our site). However, presenting risk in this way assumes that an individual’s exposure to COVID-19 cases happens exclusively within their residential neighborhood. Through the following explainer, we illustrate why this might not be a ‘true’ representation of reality, and introduce a personal COVID-19 risk map for the state of Michigan to address some of the assumptions that come with these geographic maps.',
             location: {
-                center: [-83.83117, 42.28944],
-                zoom: 10.6,
+                center: [-87.88772, 44.44297],
+                zoom: 5.86,
                 pitch: 0.00,
                 bearing: 0.00,
             },
             onChapterEnter: [
+                {
+                    layer: 'hexagons-5km-three',
+                    opacity: 0,
+                },
                 {
                     layer: '3hex-numberlabels',
                     opacity: 0,
@@ -35,12 +39,16 @@ let config = {
             image: '',
             description: 'First, let’s present a hypothetical environment 3 hexagonal neighborhoods and 12 households. Let’s say each household has four members, so we have 48 total people in our example.',
             location: {
-                center: [-83.83117, 42.28944],
+                center: [-83.82462, 42.27720],
                 zoom: 11,
                 pitch: 0.00,
                 bearing: 0.00,
             },
             onChapterEnter: [
+                {
+                    layer: 'hexagons-5km-three',
+                    opacity: 1,
+                },
                 {
                     layer: '3hex-numberlabels',
                     opacity: 0,
@@ -237,6 +245,14 @@ let config = {
                     layer: '3hex-rx-concentric2',
                     opacity: .8,
                 },      
+                {
+                    layer: '3hex-hardware-concentric1',
+                    opacity: 0,
+                },      
+                {
+                    layer: '3hex-hardware-concentric2',
+                    opacity: 0,
+                }, 
        
             ],
             onChapterExit: [
