@@ -280,6 +280,12 @@ map.on("load", function() {
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
         response.element.classList.add('active');
         map.flyTo(chapter.location);
+      
+        if ([0].includes(idx)) {
+            map.setPaintProperty('households', 'icon-opacity', 0)
+        } else{
+            map.setPaintProperty('households', 'icon-opacity', 1)
+        }
 
         if ([1,2].includes(idx)) {
             map.setLayoutProperty('households', 'icon-image', idx === 1 ? 'home-solid'
