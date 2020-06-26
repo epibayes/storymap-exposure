@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckbwgmgzi0k241ipext5hfszo',
+    style: 'mapbox://styles/epibayes/ckbwi1pwl151j1ko9lll7s3fu',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
@@ -205,7 +205,7 @@ let config = {
             id: 'seven',
             title: '7. Other essential businesses',
             image: '',
-            description: 'However, grocery stores are not the only essential businesses where individuals from different households might interact. Even during stay-at-home orders, hardware stores (first graphic) and pharmacies (second graphic) are also places for infected individuals from different neighborhoods to expose each other, complicating the network of interaction.',
+            description: 'However, grocery stores are not the only essential businesses where individuals from different households might interact. Even during stay-at-home orders, hardware stores <img src="images/hardware.svg" style="display:inline-block; vertical-align:middle; margin-left:auto; margin-right:auto; width: 20px;"> and pharmacies <img src="images/rx.svg" style="display:inline-block; vertical-align:middle; margin-left:auto; margin-right:auto; width: 15px;"> are also places for infected individuals from different neighborhoods to expose each other, complicating the network of interaction.',
             location: {
                 center: [-83.777, 42.28],
                 zoom: 11.8,
@@ -248,7 +248,7 @@ let config = {
         },
         {
             id: 'eight',
-            title: 'Section 8',
+            title: '8. Groups of contact',
             image: '',
             description: 'Each of these categorizations: mapping households to their closest grocery store, pharmacy, and hardware store, and seeing who their new contacts are through these essential establishments gives us a different group of individuals who might contact a case. This simplified illustration was used to map the ___ households at the block group level, ___ grocery stores, ___ hardware stores, and ___ pharmacies across the state of Michigan to generate a more realistic personalized ‘risk-map’, where you can scroll through your area and see what your risk of coming into contact with a case is while incorporating essential trips to pharmacies, grocery stores, and hardware stores.',            
             location: {
@@ -288,7 +288,7 @@ let config = {
         },
         {
             id: 'nine',
-            title: 'Section 9',
+            title: '9. Remember to be mindful',
             image: '',
             description: 'It’s important to remember that this is a <b><i>best case scenario</i></b> under social-distancing behaviors. As individuals start going back to work, to restaurants, and to bars with the state opening up, your individual risk will depend even less on your local neighbors – so remember to be mindful of your contacts and continue to practice social distancing.',            
             location: {
