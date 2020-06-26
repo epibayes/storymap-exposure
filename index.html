@@ -276,7 +276,6 @@ map.on("load", function() {
     })
     .onStepEnter(response => {
         let idx = config.chapters.findIndex(chap => chap.id === response.element.id)
-        console.log(idx)
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
         response.element.classList.add('active');
         map.flyTo(chapter.location);
