@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckbwi1pwl151j1ko9lll7s3fu',
+    style: 'mapbox://styles/epibayes/ckbwk8tzu0k9b1ipgr3mgfbi7',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
@@ -142,7 +142,7 @@ let config = {
                     opacity: 1,
                 },
                 {
-                    layer: '3hex-gtoh-connections',
+                    layer: '3hex-connections',
                     opacity: 0,
                 },  
             ],
@@ -166,7 +166,7 @@ let config = {
                     opacity: 1,
                 },
                 {
-                    layer: '3hex-gtoh-connections',
+                    layer: '3hex-connections',
                     opacity: 1,
                 },  
                 {
@@ -218,7 +218,7 @@ let config = {
                     opacity: 1,
                 },
                 {
-                    layer: '3hex-gtoh-connections',
+                    layer: '3hex-connections',
                     opacity: 0,
                 },  
                 {
@@ -279,7 +279,7 @@ let config = {
                     opacity: .8,
                 }, 
                 {
-                    layer: '3hex-etcbusinesses',
+                    layer: '3hex-miscbusinesses',
                     opacity: 0,
                 },
             ],
@@ -319,7 +319,7 @@ let config = {
                     opacity: 0
                 },
                 {
-                    layer: '3hex-etcbusinesses',
+                    layer: '3hex-miscbusinesses',
                     opacity: 1,
                 },
             ],

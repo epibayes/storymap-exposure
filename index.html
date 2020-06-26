@@ -237,9 +237,9 @@ var scroller = scrollama();
 
 map.on("load", function() {
     // set up household layer
-    map.addSource('3hex-houses', {
+    map.addSource('3hex-households', {
         type: 'vector',
-        url: 'mapbox://epibayes.ckbs01rk911yn26qhzpqbl5g6-6wp6w'
+        url: 'mapbox://epibayes.ckbs01rk911yn26qhzpqbl5g6-79zdw'
     })
     // set up groceries layer
     map.addSource('3hex-grocery-stores', {
@@ -249,37 +249,22 @@ map.on("load", function() {
     map.addLayer({
         "id": "households",
         "type": "symbol",
-        "source": "3hex-houses",
-        "source-layer": "3hex-houses",
+        "source": "3hex-households",
+        "source-layer": "3hex-households",
         'layout': {
             "icon-image": 'home-solid',
             "icon-allow-overlap": true,
             "icon-size": 0.5,
         }
     })
-    // set up white houses layer
-    map.addLayer({
-        "id": "whitehouses",
-        "type": "symbol",
-        "source": "3hex-houses",
-        "source-layer": "3hex-houses",
-        'layout': {
-            "icon-image": 'home-solid-white',
-            "icon-allow-overlap": true,
-            "icon-size": 0.5,
-        },
-        "paint":{
-            "icon-opacity": 0,
-        }
-    })
     // set up greenblue layer
     map.addLayer({
         "id": "greenblue",
         "type": "symbol",
-        "source": "3hex-houses",
-        "source-layer": "3hex-houses",
+        "source": "3hex-households",
+        "source-layer": "3hex-households",
         'layout': {
-            "icon-image": 'home-solid-greengroup',
+            "icon-image": 'greenhome',
             "icon-allow-overlap": true,
             "icon-size": 0.5,
         },
@@ -332,16 +317,14 @@ map.on("load", function() {
         }
         
         if ([5].includes(idx)) {
-            map.setPaintProperty('whitehouses', 'icon-opacity', 1)
             map.setPaintProperty('greenblue', 'icon-opacity', 1)
             map.setLayoutProperty('greenblue', 'icon-image', idx === 1 ? 'home-solid'
                 : ['match', ['get','zone'],
-                    'green', 'home-solid-greengroup',
-                    'home-solid-bluegroup',
+                    'green', 'greenhome',
+                    'bluehome',
                 ]
             )
         } else {
-            map.setPaintProperty('whitehouses', 'icon-opacity', 0)
             map.setPaintProperty('greenblue', 'icon-opacity', 0) 
         }
 
