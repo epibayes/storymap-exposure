@@ -84,6 +84,43 @@
             width: 100%;
         }
 
+        .modal{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(0,0,0,0.4);
+            border: 1px solid lightgray;
+            -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+        }
+        .modalheader{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            background-color: red;
+        }
+        .close{
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+        }
+        .modalcontents{
+            background-color:white;
+            margin: 5px;
+        }
+        .modalcontents p{
+            text-align: center;
+            margin: 5px;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
         @media (max-width: 750px) {
             #features {
                 width: 90vw;
@@ -93,6 +130,15 @@
         </style>
 </head>
 <body>
+    <div id="warning" class="modal">
+        <div class="modalcontents">
+            <div class="modalheader">
+                <span class="close">&times;</span>
+            </div>
+            <p>This experience is optimized for desktop and may not display properly on your device!</p>
+            <p>Please view on a large screen for the best experience.</p>
+        </div>
+    </div>
 
 <div id="map"></div>
 <div id="story"></div>
@@ -361,6 +407,27 @@ map.on("load", function() {
 // setup resize event
 window.addEventListener('resize', scroller.resize);
 
+
+//if the screen size is below X, pop up an alert that says the experience is not developed for mobile
+let device = window.innerWidth;
+let closebutton = document.querySelector('.close');
+let modal = document.querySelector('.modal')
+console.log(device);
+if (device <= 768){
+    document.querySelector('.modal').style.display = 'block';
+
+}
+// When the user clicks on <span> (x), close the modal
+    closebutton.onclick = function() {
+        modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 </script>
 
 </body>
