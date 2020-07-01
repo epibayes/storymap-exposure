@@ -65,9 +65,10 @@
             background-color: #444;
         }
         .step {
-            padding-bottom: 50vh;
+            margin-bottom: 50vh;
             /* margin-bottom: 10vh; */
             opacity: 0.25;
+            border: 1px solid lightgray;
         }
         .step.active {
             opacity: 0.9;
@@ -239,7 +240,7 @@ map.on("load", function() {
     // set up household layer
     map.addSource('3hex-households', {
         type: 'vector',
-        url: 'mapbox://epibayes.ckbs01rk911yn26qhzpqbl5g6-79zdw'
+        url: 'mapbox://epibayes.ckbs01rk911yn26qhzpqbl5g6-0x6ta'
     })
     // set up groceries layer
     map.addSource('3hex-grocery-stores', {
@@ -296,7 +297,6 @@ map.on("load", function() {
     })
     .onStepEnter(response => {
         let idx = config.chapters.findIndex(chap => chap.id === response.element.id)
-        // console.log(idx)
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
         response.element.classList.add('active');
         map.flyTo(chapter.location);
@@ -318,10 +318,12 @@ map.on("load", function() {
         
         if ([5].includes(idx)) {
             map.setPaintProperty('greenblue', 'icon-opacity', 1)
-            map.setLayoutProperty('greenblue', 'icon-image', idx === 1 ? 'home-solid'
+            console.log()
+            map.setLayoutProperty('greenblue', 'icon-image', idx === 1 ? 'home-solid-infected'
                 : ['match', ['get','zone'],
-                    'green', 'greenhome',
-                    'bluehome',
+                    'green', 'greenhome', 
+                    'blue','bluehome',
+                    'home-solid-infected'
                 ]
             )
         } else {
