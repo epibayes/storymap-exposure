@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/epibayes/ckc4tkl3810sc1inwlzel1wow',
+    style: 'mapbox://styles/epibayes/ckcbymklc0qxb1ipdpqslfbwn',
     accessToken: 'pk.eyJ1IjoiZXBpYmF5ZXMiLCJhIjoiY2tiaml0b3JpMHBuNzJ1bXk3MzdsbWs1aCJ9.YlxrUIBkuWk-VuYDDeMjBQ',
     showMarkers: false,
     theme: 'light',
