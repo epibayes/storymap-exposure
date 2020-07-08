@@ -6,7 +6,7 @@ let config = {
     alignment: 'left',
     title: 'Understanding your COVID Risk: Epidemiology by Nina',
     subtitle: 'A map and calculations-supported visual story',
-    byline: 'Draft by Alex and Stephanie',
+    byline: 'Storymap by Stephanie Choi and Alex Cao \n Storyboard by Nina Masters and Paul Delamater',
     footer: 'Visit our <a href="https://covidmapping.org">main site</a> <br><br>Icons by FontAwesome',
     chapters: [
         {
@@ -234,7 +234,7 @@ let config = {
             id: 'eight',
             title: '8. Groups of contact',
             image: '',
-            description: 'Each of these categorizations: mapping households to their closest grocery store, pharmacy, and hardware store, and seeing who their new contacts are through these essential establishments gives us a different group of individuals who might contact a case. This simplified illustration was used to map the ___ households at the block group level, ___ grocery stores, ___ hardware stores, and ___ pharmacies across the state of Michigan to generate a more realistic personalized ‘risk-map’, where you can scroll through your area and see what your risk of coming into contact with a case is while incorporating essential trips to pharmacies, grocery stores, and hardware stores.',            
+            description: 'Each of these categorizations: mapping households to their closest grocery store, pharmacy, and hardware store, and seeing who their new contacts are through these essential establishments gives us a different group of individuals who might contact a case. This simplified illustration was used to map the 8,146 households at the block group level, 4,105 grocery stores, 3,599 home goods stores, and 2,561 pharmacies across the state of Michigan to generate a more realistic personalized ‘risk-map’, where you can scroll through your area and see what your risk of coming into contact with a case is while incorporating essential trips to pharmacies, grocery stores, and hardware stores.',            
             location: {
                 center: [-83.777, 42.28],
                 zoom: 11.8,
